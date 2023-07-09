@@ -1,0 +1,24 @@
+-
+  const footerMenu = [
+    'Каталог',
+    'Сервис и&nbsp;услуги',
+    'Техника с наработкой',
+    'О нас',
+    'Запчасти',
+    'Контакты'
+  ]
+
+footer.footer
+  .inner.footer__inner
+    a.footer__logo(href='/')
+      +ui-svg('icon_logo')
+    ul.footer__menu
+      each item in footerMenu
+        li.footer__item
+          a.footer__link(href='#') !{item}
+    .footer__contacts
+      a.footer__tel(href='tel:+79009009090') +7 900 900 90 90
+      .footer__contact
+        p г.&nbsp;Воронеж, ул.&nbsp;Пешестрелецкая, 1а
+        p
+          a(href='mailto:info@avrora.ru') info@avrora.ru

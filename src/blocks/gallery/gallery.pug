@@ -1,0 +1,28 @@
+mixin gallery(mods, photo = true, video, mobSlider)
+  -
+    const baseName = 'gallery'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .gallery(class=allMods)&attributes(attributes)
+    if photo
+      if mobSlider
+        .swiper-wrapper.gallery__grid
+          -for(let i=0; i<4; i++)
+            a.gallery__img.swiper-slide(data-fancybox='gallery' href=`../../images/product-${i+1}.png`): img(src=`../../images/product-${i+1}.png` alt='')
+        +ui-swiper-bullets('gallery')
+      else
+        .gallery__grid
+          -for(let i=0; i<4; i++)
+            a.gallery__img(data-fancybox='gallery' href=`../../images/product-${i+1}.png`): img(src=`../../images/product-${i+1}.png` alt='')
+    if video
+      .gallery__grid
+        -for(let i=0; i<4; i++)
+          a.gallery__video(data-fancybox='gallery' data-type='iframe' href='https://www.youtube-nocookie.com/embed/tHvb2Wnu8_4'): img(src=`../../images/product-${i+1}.png` alt='')
+    block

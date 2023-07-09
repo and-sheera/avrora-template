@@ -1,0 +1,34 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'about'
+    const pageTitle = 'О компании'
+
+    const form = {
+      title: 'Получите бесплатную консультацию по&nbsp;покупке сельскохозяйственной техники',
+      subtitle: 'Оставьте свои контакты и&nbsp;наш специлист свяжется с&nbsp;вами в&nbsp;течении 15&nbsp;минут'
+    }
+
+block content
+  main
+    +breadcrumbs
+      +breadcrumbs-item('Главная', '/')
+      +breadcrumbs-item(pageTitle)
+    +section('--mt0, --pd-y80')
+      .inner
+        +ui-h2('О компании', 'section')
+        +info
+    +section('--mt0, --ov-h')
+      .inner
+        +ui-h2('Наши преимущества', 'section')
+        +benefits
+    +section('--bg')
+      .inner
+        +form(form)
+    +section('--ov-h')
+      .inner
+        +ui-h2('Галерея', 'section')
+        +gallery('--m-slider', true, false, true)
+    +section
+      +map(data-center='19.051399, 47.492647' data-zoom='3' data-markers='17.024999, 29.344434; 40.459511, 52.221098; 94.401113, 57.166227')

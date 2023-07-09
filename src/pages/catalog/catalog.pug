@@ -1,0 +1,18 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'catalog'
+    const pageTitle = 'ООО АГРО'
+
+block content
+  main.pb0
+    +breadcrumbs
+      +breadcrumbs-item('Главная', '/')
+      +breadcrumbs-item('Каталог продукции', '#')
+      +breadcrumbs-item('По производителю', '#')
+      +breadcrumbs-item(pageTitle)
+    +section('--mt0, --bg, --pd-y80')
+      .inner
+        +ui-h2('ООО АГРО', 'section')
+        +catalog

@@ -1,0 +1,30 @@
+mixin form(data, mods)
+  -
+    const baseName = 'form'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  form.form(class=allMods)&attributes(attributes)
+    .form__content
+      .form__head
+        .form__title !{data.title}
+        .form__subtitle !{data.subtitle}
+      .form__main
+        .form__fields
+          +ui-input('name', '')(placeholder='Ваше имя' required data-parsley-error-message='Данные не заполнены')
+          +ui-input('email', '', 'email')(placeholder='E-mail' required data-parsley-error-message='Данные не заполнены')
+          +ui-input('name', '')(placeholder='+7 (___) ___-__-__' data-mask='phone' required data-parsley-error-message='Данные не заполнены')
+          +ui-button('Отправить')(type='submit')
+        .form__fn Нажимая кнопку «Отправить», Вы принимаете условия
+          =' '
+          a(href='#') Пользовательского соглашения
+    .form__thx
+      .form__title Спасибо
+      .form__subtitle Ваша заявка принята, в&nbsp;течении 15&nbsp;минут наш специалист свяжется с&nbsp;вами
+    block

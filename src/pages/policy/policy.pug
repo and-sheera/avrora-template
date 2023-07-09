@@ -1,0 +1,15 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'policy'
+    const pageTitle = 'Политика'
+
+block content
+  main
+    +breadcrumbs
+      +breadcrumbs-item('Главная', '/')
+      +breadcrumbs-item(pageTitle)
+    +section('--mt0, --pd-y80')
+      .inner
+        +policy

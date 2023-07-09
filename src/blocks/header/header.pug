@@ -1,0 +1,77 @@
+-
+  const list1 = [
+    'АО Агросиблизинг',
+    'НПО СУР',
+    'ООО АГРО',
+    'Кубаньжелдорма',
+    'Агромаш',
+    'Радогост-Маш'
+  ]
+
+  const list2 = [
+    'Комбайны',
+    'Адаптеры',
+    'Каталог по назначению',
+    'Трактор',
+    'Коммунальная техника',
+    'Почвообрабатывающая техника',
+    'Зернообрабатывающая техника',
+    'Посевная техника',
+    'Транспортировочные прицепы',
+    'Внесение удобрений',
+    'Кормоуборочная техника'
+  ]
+
+  const anotherMenu = [
+    'Техника с наработкой',
+    'Запчасти',
+    'Сервис и услуги',
+    'О нас',
+    'Контакты',
+  ]
+
+mixin header__nav(title)
+  .header__nav
+    button.header__nav-back
+    .header__nav-title !{title}
+    button.header__nav-back.header__nav-back--cross
+
+
+header.header
+  .inner.header__inner
+    .header__burger-open
+      button.header__burger-button
+        span
+        span
+        span
+    a.header__logo(href='/')
+      +ui-svg('icon_logo')
+    .header__burger
+      ul.header__menu
+        li.header__item
+          a.header__link(href='#') Каталог
+          .header__dropdown
+            .inner
+              +header__nav('Каталог')
+              ul.header__submenu
+                li.header__subitem
+                  a.header__link(href='#') Каталог по&nbsp;производителю
+                  ul.header__list
+                    +header__nav('Каталог по&nbsp;производителю')
+                    each item in list1
+                      li.header__list-item
+                        a.header__link(href='#') !{item}
+                li.header__subitem
+                  a.header__link(href='#') Каталог по&nbsp;назначению
+                  ul.header__list
+                    +header__nav('Каталог по&nbsp;назначению')
+                    each item in list2
+                      li.header__list-item
+                        a.header__link(href='#') !{item}
+        each item in anotherMenu
+          li.header__item
+            a.header__link(href='#') !{item}
+      .header__tel
+        a(href='tel:+79009009090') +7 900 900 90 90
+    +ui-button('Заказать звонок', 'header, --xs')(href='#back-call' data-popup-open='')
+

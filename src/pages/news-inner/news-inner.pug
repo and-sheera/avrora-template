@@ -1,0 +1,15 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'news-inner'
+    const pageTitle = 'news-inner'
+
+block content
+  main
+    +breadcrumbs
+      +breadcrumbs-item('Главная', '/')
+      +breadcrumbs-item('Новости')
+    +section('--mt0, --ov-h, --pd-y80')
+      .inner
+        +news-inner

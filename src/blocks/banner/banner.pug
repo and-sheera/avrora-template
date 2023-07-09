@@ -1,0 +1,24 @@
+mixin banner(mods)
+  -
+    const baseName = 'banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .banner(class=allMods)&attributes(attributes)
+    .banner__slider
+      .swiper-wrapper.banner__swiper-wrapper
+        -for(let i=0; i<3; i++)
+          .banner__item.swiper-slide
+            .banner__img: img(src='../../images/banner.png' alt='')
+            .inner.banner__inner
+              h2.banner__title Сельскохозяйственная техника и&nbsp;оборудование для&nbsp;агропромышленных комплексов
+              +ui-button('Оставить заявку', 'banner')(href='#')
+      +ui-swiper-bullets('banner')
+    .banner__foot Гарантируем бесперебойную работу техники за&nbsp;счет высоких стандартов качества и&nbsp;прямой гарантии от&nbsp;заводов
+    block

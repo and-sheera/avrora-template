@@ -1,0 +1,20 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'product'
+    const pageTitle = 'Посевной комплекс «Кузбасс»'
+
+block content
+  main.pb0
+    +breadcrumbs
+      +breadcrumbs-item('Главная', '/')
+      +breadcrumbs-item('Каталог продукции', '#')
+      +breadcrumbs-item('По производителю', '#')
+      +breadcrumbs-item('ООО АГРО', '#')
+      +breadcrumbs-item('Посевные комплексы', '#')
+      +breadcrumbs-item(pageTitle)
+    +section('--mt0, --pd-y80')
+      .inner
+        +ui-h2('Посевной комплекс «Кузбасс»', 'section')
+        +product

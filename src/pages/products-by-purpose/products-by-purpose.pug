@@ -1,0 +1,25 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'products-by-purpose'
+    const pageTitle = 'products-by-purpose'
+
+    const form = {
+      title: 'Получите бесплатную консультацию по&nbsp;покупке сельскохозяйственной техники',
+      subtitle: 'Оставьте свои контакты и&nbsp;наш специлист свяжется с&nbsp;вами в&nbsp;течении 15&nbsp;минут'
+    }
+
+block content
+  main
+    +breadcrumbs
+      +breadcrumbs-item('Главная', '/')
+      +breadcrumbs-item('Каталог продукции', '#')
+      +breadcrumbs-item('По назначению')
+    +section('--mt0, --bg, --pd-y80')
+      .inner
+        +ui-h2('Каталог продукции', 'section')
+        +products('', '', true)
+    +section
+      .inner
+        +form(form)

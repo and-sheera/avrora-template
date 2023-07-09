@@ -1,0 +1,110 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+*:focus {
+  outline: none;
+}
+html {
+  box-sizing: border-box;
+  line-height: 1;
+  scroll-behavior: smooth;
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  &.transition-disabled {
+    *,
+    *::before,
+    *::after {
+      transition: none;
+    }
+  }
+}
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+  &:hover {
+    color: $green;
+  }
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+span,
+ul,
+ol,
+li,
+tr,
+td,
+th,
+table,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+// defaults
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: var(--header-height, 80px);
+  font-family: $font;
+  line-height: 1.2;
+  color: $black;
+  @include media-laptop {
+    padding-top: var(--header-height, 60px);
+  }
+  @include media-tablet {
+    padding-top: var(--header-height, 53px);
+  }
+  .inner {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+    @include media-laptop {
+      max-width: 100%;
+    }
+    @include media-tablet {
+      padding: 0 20px;
+    }
+  }
+  main {
+    flex: 1 0;
+    padding-bottom: 80px;
+    @include media-laptop {
+      padding-bottom: 60px;
+    }
+    &.pb0 {
+      padding-bottom: 0;
+    }
+    &.d-flex {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.swiper-wrapper {
+  box-sizing: inherit;
+}
