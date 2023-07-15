@@ -3,7 +3,6 @@
   "version": "1.0.4",
   "type": "module",
   "description": "simple bem pug+scss template",
-  "author": "Alexey Kozyutenko",
   "license": "MIT",
   "scripts": {
     "dev": "gulp pugMixins && vite",

@@ -1,7 +1,7 @@
 .catalog {
   display: grid;
   grid-template-columns: 325px 1fr;
-  align-content: flex-start;
+  align-items: start;
   gap: 20px;
   @include media-laptop {
     grid-template-columns: minmax(0, 1fr);
