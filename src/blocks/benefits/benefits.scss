@@ -19,10 +19,16 @@
     align-content: start;
     gap: 10px;
     @include media-tablet {
+      width: 81.5vw;
       transition: opacity 0.3s 0.2s;
     }
     &:not(.swiper-slide-visible) {
       @include media-tablet {
+        opacity: 0.5;
+      }
+    }
+    &.swiper-slide-next {
+      @include media-laptop {
         opacity: 0.5;
       }
     }
@@ -35,6 +41,9 @@
   &__name {
     font-weight: 600;
     font-size: 22px;
+    @include media-tablet {
+      font-size: 18px;
+    }
   }
   &__descr {
     grid-column: 1/-1;

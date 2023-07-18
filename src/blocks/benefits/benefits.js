@@ -3,8 +3,8 @@ import Swiper from 'swiper/bundle'
 export default function benefits() {
   const benefitsSlider = new Swiper('.benefits', {
     speed: 400,
-    slidesPerView: 1,
-    spaceBetween: 15,
+    slidesPerView: 'auto',
+    spaceBetween: 10,
     enabled: true,
     watchSlidesProgress: true,
     pagination: {
@@ -15,7 +15,6 @@ export default function benefits() {
     breakpoints: {
       744: {
         spaceBetween: 0,
-        slidesPerView: 'auto',
         enabled: false
       }
     }
